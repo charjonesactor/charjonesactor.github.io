@@ -3,11 +3,17 @@
 /* Import funky Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Montserrat:wght@400;700&display=swap');
 
+
 body {
-  margin: 0;
+  /* Gradient from brat green to bright orange */
+  background: linear-gradient(135deg, #39ff14, #ff5f1f);
+  
+  /* Make text readable on bright background */
+  color: #121212; /* dark text contrasts with bright gradient */
+  
   font-family: 'Montserrat', sans-serif;
-  background-color: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
-  color: black;
+  margin: 0;
+  padding: 0;
 }
 
 header {
