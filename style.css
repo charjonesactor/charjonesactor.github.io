@@ -6,7 +6,7 @@
 
 body {
   /* Gradient from brat green to bright orange */
-  background: linear-gradient(135deg, #39ff14, #ff5f1f);
+  background: linear-gradient(135deg, #ff5f1f,#39ff14);
   
   /* Make text readable on bright background */
   color: #121212; /* dark text contrasts with bright gradient */
