@@ -174,25 +174,40 @@ section a:hover {
 /* Grid layout for work cards */
 .work-grid {
   display: flex;
-  flex-wrap: wrap;
-  gap: 25px;
-  justify-content: center;
+  flex-direction: column; /* stack cards vertically */
+  gap: 30px; /* space between cards */
+  align-items: center;    /* center cards horizontally */
   margin: 20px 0;
 }
 
 /* Individual card */
 .work-card {
   position: relative;
-  width: 350px;  /* adjust as needed */
+  width: 90%;        /* almost full width of container */
+  max-width: 1200px; /* optional max width for large screens */
   overflow: hidden;
   border-radius: 15px;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
 }
 
 .work-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
+}
+
+/* Image inside card */
+.work-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  filter: brightness(0.85);
+  transition: all 0.5s ease;
+}
+
+.work-card:hover img {
+  filter: brightness(1);
 }
 
 /* Image inside card */
