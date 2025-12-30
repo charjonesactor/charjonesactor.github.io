@@ -259,3 +259,19 @@ section a:hover {
   font-size: 0.85rem;
   margin: 0;
 }
+
+.resume-images {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 1000px;
+  margin: 20px auto;
+}
+
+.resume-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  border: 3px solid #39ff14;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
