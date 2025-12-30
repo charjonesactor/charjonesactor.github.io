@@ -171,4 +171,70 @@ section a:hover {
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
+/* Grid layout for work cards */
+.work-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  margin: 20px 0;
+}
 
+/* Individual card */
+.work-card {
+  position: relative;
+  width: 350px;  /* adjust as needed */
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover {
+  transform: scale(1.05);
+}
+
+/* Image inside card */
+.work-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.5s ease;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.work-card:hover img {
+  filter: brightness(1);
+}
+
+/* Overlay with text */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 15px;
+  text-align: left;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.work-card:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+}
+
+.overlay p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  margin: 0;
+}
