@@ -104,7 +104,8 @@ nav {
   text-align: center;
   margin: 20px 0;
   padding: 10px 0;
-  background: linear-gradient(90deg, #39ff14, #ff5f1f, #ff00ff, #00ffff); /* funky gradient */
+  /* background: linear-gradient(90deg, #39ff14, #ff5f1f, #ff00ff, #00ffff); /* funky gradient */ */
+  background: linear-gradient(90deg, #808080, #fffffF, #000000); 
   background-size: 400% 400%;
   animation: gradientMove 15s ease infinite; /* animate gradient */
   border-radius: 15px;
