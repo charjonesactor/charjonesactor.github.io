@@ -6,7 +6,7 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color: ##fffdf7;
+  background-color: linear-gradient(180deg, #121212 0%, #1a1a1a 100%);
   color: black;
 }
 
