@@ -34,8 +34,15 @@
       Hilda Morfi – Glitter Talent · (201) 758-7272
     </li>
   </ul>
-
-  <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+   
+    <div id="form-success" style="display:none; text-align:center; margin-bottom:24px; color:#39ff14; font-size:14px;">
+      Thanks! Your message has been sent.
+    </div>
+    <form class="contact-form"
+      action="https://formspree.io/f/xojvzkwa"
+      method="POST"
+      onsubmit="document.getElementById('form-success').style.display='block'">
+    <input type="hidden" name="_subject" value="Booking / Casting Inquiry from Website">
     <input type="text" name="name" placeholder="Name" required />
     <input type="email" name="email" placeholder="Email" required />
     <textarea name="message" placeholder="Message" rows="5" required></textarea>
