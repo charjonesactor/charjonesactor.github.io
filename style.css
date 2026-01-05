@@ -290,8 +290,9 @@ section a:hover {
   font-size: 13px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: transparent;
+  background-color: #0a0a0a; /* rich black */
 }
+
 
 .site-footer p {
   color: rgba(255, 255, 255, 0.55);
