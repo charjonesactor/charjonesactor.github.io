@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Char Jones</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="images/contact-us.png">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-<header>
-  <h1>CHAR JONES</h1>
-  <p>Actor | Film • Television • Stage</p>
-</header>
+<body class="contact-page">
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="recent-work.html">Work</a>
-  <a href="contact.html">Contact</a>
-</nav>
+  <!-- NAV -->
+  <nav class="main-nav">
+    <a href="index.html">HOME</a>
+    <a href="recent-work.html">WORK</a>
+    <a href="about.html">ABOUT</a>
+    <a href="contact.html" class="active">CONTACT</a>
+  </nav>
 
-<section>
-  <h2>Contact</h2>
+  <!-- CONTACT SECTION -->
+  <main class="contact-container">
+    <h1>Contact</h1>
+    <p class="contact-intro">
+      Representation, collaborations, or general inquiries.
+    </p>
 
-  <div style="display:flex; flex-wrap:wrap; align-items:center; gap:40px; justify-content:center;">
-    <!-- Profile / Headshot Image -->
-    <img src="images/headshot4.png" alt="Char Jones Headshot" style="width:250px; border-radius:15px; border:3px solid #39ff14;">
+    <form class="contact-form" action="https://formspree.io/f/xojvzkwa" method="POST">
 
-    <!-- Contact Info -->
-    <div style="max-width:500px;">
-      <p>For inquiries or bookings, reach me at:</p>
-      <ul>
-        <li>Email: <a href="mailto:charjonesactor@gmail.com" style="color:#39ff14;">charjonesactor@gmail.com</a></li>
-        <li>Representation: Hilda Morfi – Glitter Talent - (201) 758-7272</li>
-      </ul>
-
-      <p>Follow me on social media:</p>
-      <div class="buttons">
-        <a href="https://www.instagram.com/charnot" target="_blank">Instagram</a>
-        <a href="https://www.youtube.com/@charjonesactor/videos" target="_blank">YouTube</a>
-        <a href="https://www.tiktok.com/@bigfootluvr" target="_blank">TikTok</a>
-      </div>
-    </div>
-  </div>
-</section>
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <textarea name="message" placeholder="Message" rows="5" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </main>
 
 </body>
 </html>
