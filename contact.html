@@ -9,7 +9,6 @@
 
 <body class="contact-page">
 
-  <!-- NAV -->
   <nav class="main-nav">
     <a href="index.html">HOME</a>
     <a href="recent-work.html">WORK</a>
@@ -17,42 +16,33 @@
     <a href="contact.html" class="active">CONTACT</a>
   </nav>
 
-  <!-- CONTACT SECTION -->
- <main class="contact-container">
-  <h1>Contact</h1>
-  <p class="contact-intro">
-    Representation, collaborations, or general inquiries.
-  </p>
+  <main class="contact-layout">
 
-  <ul class="contact-details">
-    <li>
-      Email:
-      <a href="mailto:charjonesactor@gmail.com">charjonesactor@gmail.com</a>
-    </li>
-    <li>
-      Representation:
-      Hilda Morfi – Glitter Talent · (201) 758-7272
-    </li>
-  </ul>
-   
-    <div id="form-success" style="display:none; text-align:center; margin-bottom:24px; color:#39ff14; font-size:14px;">
-      Thanks! Your message has been sent.
+    <!-- IMAGE -->
+    <div class="contact-image">
+      <img src="assets/contact.jpg" alt="Char Jones headshot">
     </div>
-    <form class="contact-form"
-      action="https://formspree.io/f/xojvzkwa"
-      method="POST"
-      onsubmit="document.getElementById('form-success').style.display='block'">
-    <input type="hidden" name="_subject" value="Booking / Casting Inquiry from Website">
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <textarea name="message" placeholder="Message" rows="5" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-</main>
+
+    <!-- FORM -->
+    <div class="contact-content">
+      <h1>Contact</h1>
+      <p>
+        Representation, collaborations, or general inquiries.
+      </p>
+
+      <form
+        class="contact-form"
+        action="https://formspree.io/f/xojvzkwa"
+        method="POST"
+      >
+        <input type="text" name="name" placeholder="Name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+  </main>
 
 </body>
 </html>
-
-
-
-
