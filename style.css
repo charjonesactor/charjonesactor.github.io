@@ -424,4 +424,22 @@ section a:hover {
   }
 }
 
+/* PAGE THEMES */
+
+.home-page {
+  background-color: #020617;
+}
+
+.work-page {
+  background-color: #000000;
+}
+
+.about-page {
+  background: radial-gradient(circle at top, #3a1c5c, #120018);
+}
+
+.contact-page {
+  background-color: #e6eef6;
+}
+
 
