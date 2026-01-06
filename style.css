@@ -441,5 +441,12 @@ section a:hover {
 .contact-page {
   background-color: #e6eef6;
 }
+.home-page a:hover {
+  color: #FF6A00; /* Marty orange */
+}
+
+.contact-page button {
+  background-color: #0f172a;
+}
 
 
