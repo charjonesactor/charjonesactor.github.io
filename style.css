@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Montserrat:wght@400;700&display=swap');
 
 
-body {
+body.home-page {
   /* Gradient from brat green to bright orange */
   background: linear-gradient(135deg, #ff5f1f,#39ff14);
   
