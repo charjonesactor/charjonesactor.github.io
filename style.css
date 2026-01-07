@@ -342,7 +342,7 @@ body.contact-page {
 }
 
 .contact-image img {
-  width: 80%;
+  width: 60%;
   object-fit: cover;
 }
 
@@ -439,6 +439,8 @@ body.contact-page {
 
 .about-page {
   background: radial-gradient(circle at top, #3a1c5c, #120018);
+  display: flex;
+  align-items: flex-start;
 }
 
 .contact-page {
@@ -490,5 +492,14 @@ body.contact-page {
   margin-bottom: 16px;
 }
 
+.about-page .button {
+  background-color: transparent;
+  border: 1px solid #c4b5fd;
+  color: #c4b5fd;
+}
 
+.about-page .button:hover {
+  background-color: #c4b5fd;
+  color: #120018;
+}
 
