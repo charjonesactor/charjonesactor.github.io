@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Char Jones | Actor</title>
 <meta name="description" content="Char Jones, actor. Headshots, reel, resume and contact.">
+<link rel="icon" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
@@ -30,6 +31,19 @@ h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clam
 .grid img:hover{filter:saturate(1.1)}
 .links{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:8vh;padding-top:24px;border-top:1px solid var(--line)}
 .links a{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500}
+.icons{display:flex;flex-wrap:wrap;gap:28px;align-items:center;margin-top:8vh;padding-top:24px;border-top:1px solid var(--line)}
+.icons a{display:block;text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500;text-decoration:none;transition:opacity .2s}
+.icons a:hover{opacity:.55}
+.icons img{height:36px;width:auto;display:block}
+.wsec{margin-bottom:9vh}
+.wsec h3{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(20px,3vw,32px);padding-bottom:12px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.card{text-decoration:none;display:block}
+.card .ph{aspect-ratio:16/10;background:#1d181214;overflow:hidden}
+.card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.card:hover img{transform:scale(1.03)}
+.card p{margin-top:10px;text-transform:uppercase;letter-spacing:.12em;font-size:13px}
+.card p span{color:var(--soft)}
 .about{display:grid;grid-template-columns:minmax(240px,1fr) 1.4fr;gap:5vw;align-items:start}
 .about img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .about p{max-width:36em;margin-bottom:1.2em;font-size:18px}
@@ -64,23 +78,13 @@ footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:
     <h1>Char<br>Jones</h1>
     <p class="sub">Actor &middot; New York</p>
     <div class="grid" id="heads"></div>
-    <div class="links">
-      <a href="https://youtu.be/eNCb5Bny6bs" target="_blank" rel="noopener">Reel</a>
-      <a href="images/Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      <a href="https://resumes.actorsaccess.com/charjones" target="_blank" rel="noopener">Actors Access</a>
-      <a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a>
-      <a href="https://www.instagram.com/charnot" target="_blank" rel="noopener">Instagram</a>
-    </div>
+    <div class="icons" id="icons"></div>
   </section>
 
   <!-- WORK -->
   <section class="view" id="work">
     <h2>Work</h2>
-    <div class="videos" id="videos"></div>
-    <div class="links">
-      <a href="images/Resume.pdf" target="_blank" rel="noopener">Full resume (PDF)</a>
-      <a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a>
-    </div>
+    <div id="worksecs"></div>
   </section>
 
   <!-- ABOUT -->
@@ -113,14 +117,34 @@ footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:
 // ---- EDIT THESE ----
 // Headshots: put files in /images and list them here.
 const headshots = ["images/headshot1.jpg","images/headshot2.jpg","images/headshot3.jpg","images/headshot5.png"];
-// Videos: YouTube ID is the part after youtu.be/ (before any "?")
-const videos = [
-  {id:"eNCb5Bny6bs", title:"Reel", note:""}
-  // {id:"VIDEO_ID", title:"Project name", note:"Role, 2025"},
+// Icon links on the home page. Upload each icon to images/icons/ (PNG or SVG).
+// If an icon file is missing, the text label shows instead.
+const icons = [
+  {label:"Reel",          icon:"images/icons/reel.png",         url:"https://youtu.be/eNCb5Bny6bs"},
+  {label:"Resume",        icon:"images/icons/resume.png",       url:"images/Resume.pdf"},
+  {label:"Actors Access", icon:"images/icons/actorsaccess.png", url:"https://resumes.actorsaccess.com/charjones"},
+  {label:"IMDb",          icon:"images/icons/imdb.png",         url:"https://www.imdb.com/name/nm15708032/"},
+  {label:"Instagram",     icon:"images/icons/instagram.png",    url:"https://www.instagram.com/charnot"}
+];
+// Work page: each card = cover image + link (+ optional title/note). Add as many as you like.
+const work = [
+  {name:"Film / TV", items:[
+    {img:"images/work/film1.jpg", url:"https://youtu.be/VIDEO_ID", title:"Project name", note:"Role"}
+  ]},
+  {name:"Theatre", items:[
+    {img:"images/work/theatre1.jpg", url:"https://example.com", title:"Show name", note:"Role"}
+  ]},
+  {name:"Other", items:[
+    {img:"images/work/other1.jpg", url:"https://example.com", title:"Project name", note:""}
+  ]},
+  {name:"BTS", items:[
+    {img:"images/work/bts1.jpg", url:"https://example.com", title:"Project name", note:""}
+  ]}
 ];
 // --------------------
 document.getElementById('heads').innerHTML = headshots.map((s,i)=>`<img src="${s}" alt="Char Jones headshot ${i+1}" loading="${i<3?'eager':'lazy'}">`).join('');
-document.getElementById('videos').innerHTML = videos.map(v=>`<div><iframe class="vid" loading="lazy" src="https://www.youtube-nocookie.com/embed/${v.id}" title="${v.title}" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe><p class="vt">${v.title} <span>${v.note}</span></p></div>`).join('');
+document.getElementById('icons').innerHTML = icons.map(i=>`<a href="${i.url}" target="_blank" rel="noopener" aria-label="${i.label}"><img src="${i.icon}" alt="${i.label}" onerror="this.replaceWith(document.createTextNode('${i.label}'))"></a>`).join('');
+document.getElementById('worksecs').innerHTML = work.map(w=>`<div class="wsec"><h3>${w.name}</h3><div class="cards">${w.items.map(i=>`<a class="card" href="${i.url}" target="_blank" rel="noopener"><div class="ph"><img src="${i.img}" alt="${i.title||w.name}" loading="lazy"></div>${i.title?`<p>${i.title} <span>${i.note||''}</span></p>`:''}</a>`).join('')}</div></div>`).join('');
 document.getElementById('yr').textContent = new Date().getFullYear();
 function show(){
   const h = (location.hash||'#home').slice(1);
