@@ -52,7 +52,21 @@ h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clam
 .contact .row{margin-top:6vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;border-top:1px solid var(--line);padding-top:24px}
 .contact h3{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--soft);font-weight:500;margin-bottom:6px}
 footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-@media(max-width:700px){nav{gap:16px}nav a{font-size:12px}header{flex-direction:column;gap:14px;align-items:flex-start}.about{grid-template-columns:1fr}}
+.rsm{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:8vh}
+.mhead{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(20px,3vw,32px);padding-bottom:12px;margin:0 0 20px;border-bottom:1px solid var(--line)}
+@media(max-width:700px){
+header{position:static;flex-direction:column;align-items:flex-start;gap:12px;padding:20px 5vw 10px}
+nav{flex-wrap:wrap;gap:8px 20px}nav a{font-size:12px}
+main{padding:0 5vw 60px}
+.grid{grid-template-columns:1fr 1fr;gap:8px}
+.cards{grid-template-columns:1fr 1fr;gap:14px}
+.card p{font-size:11px}
+.icons{gap:22px}.icons img{height:30px}
+.about{grid-template-columns:1fr;gap:24px}.about p{font-size:16px}
+.contact a.big{font-size:clamp(20px,6.4vw,40px);text-transform:none}
+.btn{display:block;text-align:center}
+footer{padding:20px 5vw 32px}
+}
 </style>
 </head>
 <body>
@@ -62,6 +76,7 @@ footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:
     <a href="#home" data-v="home">Home</a>
     <a href="#work" data-v="work">Work</a>
     <a href="#about" data-v="about">About</a>
+    <a href="#more" data-v="more">More</a>
     <a href="#contact" data-v="contact">Contact</a>
   </nav>
 </header>
@@ -95,13 +110,30 @@ footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:
     </div>
   </section>
 
+  <!-- MORE -->
+  <section class="view" id="more">
+    <h2>More</h2>
+    <h3 class="mhead">Resume</h3>
+    <div class="rsm">
+      <a class="btn" href="images/Resume.pdf" target="_blank" rel="noopener">View resume (PDF)</a>
+      <a class="btn" href="images/Resume.pdf" download>Download</a>
+    </div>
+    <h3 class="mhead">More photos</h3>
+    <div class="grid" id="morephotos"></div>
+  </section>
+
   <!-- CONTACT -->
   <section class="view contact" id="contact">
     <h2>Contact</h2>
-    <a class="big" href="mailto:charjonesactor@gmail.com">charjonesactor@gmail.com</a>
-    <div class="row">
-      <div><h3>Representation</h3><p>Alison Caiola Management<br><a href="mailto:alisoncaiola@gmail.com">Email Manager</a></p></div>
-      <div><h3>Find me</h3><p><a href="https://www.instagram.com/charnot" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a><br><a href="https://resumes.actorsaccess.com/charjones" target="_blank" rel="noopener">Actors Access</a></p></div>
+    <div class="about">
+      <img src="images/CJ3.jpg" alt="Char Jones"><!-- change to any photo -->
+      <div>
+        <a class="big" href="mailto:charjonesactor@gmail.com">charjonesactor@gmail.com</a>
+        <div class="row">
+          <div><h3>Representation</h3><p>Alison Caiola Management<br><a href="mailto:alisoncaiola@gmail.com">Email Manager</a></p></div>
+          <div><h3>Find me</h3><p><a href="https://www.instagram.com/charnot" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a><br><a href="https://resumes.actorsaccess.com/charjones" target="_blank" rel="noopener">Actors Access</a></p></div>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -111,7 +143,10 @@ footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:
 <script>
 // ---- EDIT THESE ----
 // Every item in a list needs a comma after it (except the last one is optional).
-const headshots = ["images/CJ2.jpg","images/CJ118.jpg","images/CJ3.jpg","images/CJcu.png","images/CJeff-3.jpg","images/headshot1.jpg","images/headshot2.jpg","images/headshot3.jpg","images/headshot5.png"];
+// Home page: keep to your best 3-4.
+const headshots = ["images/CJ2.jpg","images/CJ118.jpg","images/CJ3.jpg","images/CJcu.png"];
+// "More" tab: everything else.
+const morePhotos = ["images/CJeff-3.jpg","images/headshot1.jpg","images/headshot2.jpg","images/headshot3.jpg","images/headshot5.png"];
 
 const icons = [
   {label:"Reel",          icon:"images/icons/YT.png",   url:"https://www.youtube.com/@charjonesactor/videos"},
@@ -140,7 +175,9 @@ const work = [
   ]}
 ];
 // --------------------
-document.getElementById('heads').innerHTML = headshots.map((s,i)=>`<img src="${s}" alt="Char Jones headshot ${i+1}" loading="${i<3?'eager':'lazy'}">`).join('');
+const imgs = (a,l)=>a.map((s,i)=>`<img src="${s}" alt="Char Jones photo ${i+1}" loading="${l&&i<3?'eager':'lazy'}">`).join('');
+document.getElementById('heads').innerHTML = imgs(headshots,true);
+document.getElementById('morephotos').innerHTML = imgs(morePhotos,false);
 document.getElementById('icons').innerHTML = icons.map(i=>`<a href="${i.url}" target="_blank" rel="noopener" aria-label="${i.label}"><img src="${i.icon}" alt="${i.label}" onerror="this.replaceWith(document.createTextNode('${i.label}'))"></a>`).join('');
 document.getElementById('worksecs').innerHTML = work.map(w=>`<div class="wsec"><h3>${w.name}</h3><div class="cards">${w.items.map(i=>`<a class="card" href="${i.url}" target="_blank" rel="noopener"><div class="ph"><img src="${i.img}" alt="${i.title||w.name}" loading="lazy"></div>${i.title?`<p>${i.title} <span>${i.note||''}</span></p>`:''}</a>`).join('')}</div></div>`).join('');
 document.getElementById('yr').textContent = new Date().getFullYear();
