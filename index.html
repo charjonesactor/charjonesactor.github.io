@@ -1,45 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Char Jones | Actor</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="images/shakespeare.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Char Jones | Actor</title>
+<meta name="description" content="Char Jones, actor. Headshots, reel, resume and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#d8c8a8;--ink:#1d1812;--soft:#6b5d47;--line:#1d181233}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+header{display:flex;justify-content:space-between;align-items:center;padding:28px 4vw;position:sticky;top:0;background:var(--bg);z-index:5}
+.logo{font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-size:15px}
+nav{display:flex;gap:28px}
+nav a{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent}
+nav a:hover,nav a.on{border-color:var(--ink)}
+main{padding:0 4vw 80px;min-height:70vh}
+.view{display:none}
+.view.on{display:block;animation:in .4s ease}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+h1{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:clamp(56px,13vw,190px);margin:4vh 0 1vh}
+h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(36px,7vw,84px);line-height:1;margin:4vh 0 5vh}
+.sub{text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--soft);margin-bottom:6vh}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92);transition:filter .3s}
+.grid img:hover{filter:saturate(1.1)}
+.links{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:8vh;padding-top:24px;border-top:1px solid var(--line)}
+.links a{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500}
+.about{display:grid;grid-template-columns:minmax(240px,1fr) 1.4fr;gap:5vw;align-items:start}
+.about img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.about p{max-width:36em;margin-bottom:1.2em;font-size:18px}
+.btn{display:inline-block;margin-top:12px;border:1px solid var(--ink);padding:12px 26px;text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500;text-decoration:none}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px}
+.vid{aspect-ratio:16/9;width:100%;border:0;background:#0002;display:block}
+.vt{margin-top:10px;text-transform:uppercase;letter-spacing:.12em;font-size:13px}
+.vt span{color:var(--soft)}
+.contact a.big{display:block;font-weight:800;text-transform:uppercase;font-size:clamp(28px,6vw,72px);line-height:1.1;text-decoration:none;margin-bottom:2vh;overflow-wrap:anywhere}
+.contact a.big:hover{color:var(--soft)}
+.contact .row{margin-top:6vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;border-top:1px solid var(--line);padding-top:24px}
+.contact h3{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--soft);font-weight:500;margin-bottom:6px}
+footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(max-width:700px){nav{gap:16px}nav a{font-size:12px}header{flex-direction:column;gap:14px;align-items:flex-start}.about{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="home-page">
-<nav style="text-align:center; margin:20px 0;">
-  <a href="index.html">Home</a> |
-  <a href="recent-work.html">Work</a> |
-  <a href="about.html">About</a> |
-  <a href="contact.html">Contact</a>
-</nav>
-
-
+<body>
 <header>
-  <h1 class="hero-subtitle">CHAR JONES</h1>
-  <p>Actor</p>
-   <div class="headshots">
-    <img src="images/headshot1.jpg" alt="Char Jones Headshot">
-    <img src="images/headshot2.jpg" alt="Char Jones Headshot">
-    <img src="images/headshot3.jpg" alt="Char Jones Headshot">
-    <img src="images/headshot5.png" alt="Char Jones Headshot">
-    <!-- Add more headshots here -->
-  </div>
-  <div class="buttons">
-    <a href="https://resumes.actorsaccess.com/charjones" target="_blank">Actors Access</a>
-    <a href="https://www.imdb.com/name/nm15708032/" target="_blank">IMDb</a>
-    <a href="https://www.instagram.com/charnot" target="_blank">Instagram</a>
-    <a href="https://youtu.be/eNCb5Bny6bs?si=OBuTMYIMogV7PtBd" target="_blank">Reel</a>
-    <a href="images/Resume.pdf" target="_blank">Resume</a>
-  </div>
+  <a class="logo" href="#home">Char Jones</a>
+  <nav>
+    <a href="#home" data-v="home">Home</a>
+    <a href="#work" data-v="work">Work</a>
+    <a href="#about" data-v="about">About</a>
+    <a href="#contact" data-v="contact">Contact</a>
+  </nav>
 </header>
 
-</body>
-  <footer class="site-footer">
-  <p>
-    This website was coded by <span class="coder-name">Charlotte Jones</span>.
-    <span class="zeitgeist">Welcome to the zeitgeist.</span>
-  </p>
-</footer>
-</html>
+<main>
+  <!-- HOME -->
+  <section class="view" id="home">
+    <h1>Char<br>Jones</h1>
+    <p class="sub">Actor &middot; New York</p>
+    <div class="grid" id="heads"></div>
+    <div class="links">
+      <a href="https://youtu.be/eNCb5Bny6bs" target="_blank" rel="noopener">Reel</a>
+      <a href="images/Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a href="https://resumes.actorsaccess.com/charjones" target="_blank" rel="noopener">Actors Access</a>
+      <a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a>
+      <a href="https://www.instagram.com/charnot" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </section>
 
+  <!-- WORK -->
+  <section class="view" id="work">
+    <h2>Work</h2>
+    <div class="videos" id="videos"></div>
+    <div class="links">
+      <a href="images/Resume.pdf" target="_blank" rel="noopener">Full resume (PDF)</a>
+      <a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="view" id="about">
+    <h2>About</h2>
+    <div class="about">
+      <img src="images/headshot2.jpg" alt="Char Jones">
+      <div>
+        <p>Char Jones is an actor based in New York. <!-- EDIT: replace this paragraph with your bio. --></p>
+        <p>Add a second short paragraph here: training, what you love to play, what you're working on now.</p>
+        <a class="btn" href="images/Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="view contact" id="contact">
+    <h2>Contact</h2>
+    <a class="big" href="mailto:YOUR@EMAIL.COM">YOUR@EMAIL.COM</a>
+    <div class="row">
+      <div><h3>Representation</h3><p>Add agent / manager here</p></div>
+      <div><h3>Find me</h3><p><a href="https://www.instagram.com/charnot" target="_blank" rel="noopener">Instagram</a><br><a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a><br><a href="https://resumes.actorsaccess.com/charjones" target="_blank" rel="noopener">Actors Access</a></p></div>
+    </div>
+  </section>
+</main>
+
+<footer><span>&copy; <span id="yr"></span> Char Jones</span><span>Site by Char</span></footer>
+
+<script>
+// ---- EDIT THESE ----
+// Headshots: put files in /images and list them here.
+const headshots = ["images/headshot1.jpg","images/headshot2.jpg","images/headshot3.jpg","images/headshot5.png"];
+// Videos: YouTube ID is the part after youtu.be/ (before any "?")
+const videos = [
+  {id:"eNCb5Bny6bs", title:"Reel", note:""}
+  // {id:"VIDEO_ID", title:"Project name", note:"Role, 2025"},
+];
+// --------------------
+document.getElementById('heads').innerHTML = headshots.map((s,i)=>`<img src="${s}" alt="Char Jones headshot ${i+1}" loading="${i<3?'eager':'lazy'}">`).join('');
+document.getElementById('videos').innerHTML = videos.map(v=>`<div><iframe class="vid" loading="lazy" src="https://www.youtube-nocookie.com/embed/${v.id}" title="${v.title}" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe><p class="vt">${v.title} <span>${v.note}</span></p></div>`).join('');
+document.getElementById('yr').textContent = new Date().getFullYear();
+function show(){
+  const h = (location.hash||'#home').slice(1);
+  const v = document.getElementById(h) ? h : 'home';
+  document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id===v));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
+  window.scrollTo(0,0);
+}
+addEventListener('hashchange',show);show();
+</script>
+</body>
+</html>
