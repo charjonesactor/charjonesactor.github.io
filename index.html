@@ -56,7 +56,16 @@ h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clam
 footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
 .rsm{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:8vh}
 .mhead{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(20px,3vw,32px);padding-bottom:12px;margin:0 0 20px;border-bottom:1px solid var(--line)}
-@media(max-width:700px){
+.bts{columns:3 220px;column-gap:14px}
+.bts figure{break-inside:avoid;margin-bottom:14px;cursor:zoom-in}
+.bts img{width:100%;display:block}
+.bts figcaption{font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-top:6px;color:var(--soft)}
+.lb{display:none;position:fixed;inset:0;background:#1d1812ee;z-index:20;flex-direction:column;align-items:center;justify-content:center;padding:4vw;cursor:zoom-out}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:80vh;object-fit:contain}
+.lb p{color:#eae6e0;margin-top:14px;text-transform:uppercase;letter-spacing:.14em;font-size:13px}
+.lb .x{position:absolute;top:18px;right:24px;color:#eae6e0;font-size:34px;line-height:1}
+  @media(max-width:700px){
 header{position:static;flex-direction:column;align-items:flex-start;gap:12px;padding:20px 5vw 10px}
 nav{flex-wrap:wrap;gap:8px 20px}nav a{font-size:12px}
 main{padding:0 5vw 60px}
@@ -68,6 +77,7 @@ main{padding:0 5vw 60px}
 .contact a.big{font-size:clamp(20px,6.4vw,40px);text-transform:none}
 .btn{display:block;text-align:center}
 footer{padding:20px 5vw 32px}
+.bts{columns:2 140px;column-gap:8px}
 }
 </style>
 </head>
@@ -148,7 +158,7 @@ footer{padding:20px 5vw 32px}
     </div>
   </section>
 </main>
-
+<div class="lb" id="lb"><span class="x">×</span><img alt=""><p></p></div>
 <footer><span>&copy; <span id="yr"></span> Char Jones</span><span>Site by Char</span></footer>
 
 <script>
@@ -191,9 +201,35 @@ const work = [
   ]},
 
 ];
+  const bts = [
+  {img:"images/bts/01.jpg", cap:"Balls to the Walls"},
+  {img:"images/bts/02.jpg", cap:"BIC on Film"},
+  {img:"images/bts/03.jpg", cap:"Dance Workshop"},
+  {img:"images/bts/04.jpg", cap:"Char BTS"},
+  {img:"images/bts/05.jpg", cap:"On set"},
+  {img:"images/bts/06.jpg", cap:"FBI still"},
+  {img:"images/bts/07.jpg", cap:"Jolene ad still"},
+  {img:"images/bts/08.jpg", cap:"Watercolor"},
+  {img:"images/bts/09.jpg", cap:"SNL spotting"},
+  {img:"images/bts/10.jpg", cap:"Spelling Bee"},
+  {img:"images/bts/11.jpg", cap:"Richard Currie, late mentor & director"},
+  {img:"images/bts/12.jpg", cap:"Dancing with the Stars"},
+  {img:"images/bts/13.jpg", cap:"Steel Magnolias"},
+  {img:"images/bts/14.jpg", cap:"Truvy alert!"},
+  {img:"images/bts/15.jpg", cap:"Janet, The Drowsy Chaperone"},
+  {img:"images/bts/16.jpg", cap:"If Sherlock Holmes Were a Woman"},
+  {img:"images/bts/17.jpg", cap:"Mean Girls, Stoner"},
+  {img:"images/bts/18.jpg", cap:"Earth Cups merch ad"},
+  {img:"images/bts/19.jpg", cap:"2026 selfie"}
+];
 // --------------------
 const imgs = (a,l)=>a.map((s,i)=>`<img src="${s}" alt="Char Jones photo ${i+1}" loading="${l&&i<3?'eager':'lazy'}">`).join('');
 document.getElementById('heads').innerHTML = imgs(headshots,true);
+document.getElementById('bts').innerHTML = bts.map(b=>`<figure><img src="${b.img}" alt="${b.cap}" loading="lazy"><figcaption>${b.cap}</figcaption></figure>`).join('');
+const lb = document.getElementById('lb');
+document.getElementById('bts').addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;lb.querySelector('img').src=f.querySelector('img').src;lb.querySelector('p').textContent=f.querySelector('figcaption').textContent;lb.classList.add('on');});
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
 document.getElementById('morephotos').innerHTML = imgs(morePhotos,false);
 document.getElementById('icons').innerHTML = icons.map(i=>`<a href="${i.url}" target="_blank" rel="noopener" aria-label="${i.label}"><img src="${i.icon}" alt="${i.label}" onerror="this.replaceWith(document.createTextNode('${i.label}'))"></a>`).join('');
 document.getElementById('worksecs').innerHTML = work.map(w=>`<div class="wsec"><h3>${w.name}</h3><div class="cards">${w.items.map(i=>`<a class="card" href="${i.url}" target="_blank" rel="noopener"><div class="ph"><img src="${i.img}" alt="${i.title||w.name}" loading="lazy"></div>${i.title?`<p>${i.title} <span>${i.note||''}</span></p>`:''}</a>`).join('')}</div></div>`).join('');
