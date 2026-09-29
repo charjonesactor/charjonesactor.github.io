@@ -227,10 +227,10 @@ const imgs = (a,l)=>a.map((s,i)=>`<img src="${s}" alt="Char Jones photo ${i+1}" 
 document.getElementById('heads').innerHTML = imgs(headshots,true);
 document.getElementById('bts').innerHTML = bts.map(b=>`<figure><img src="${b.img}" alt="${b.cap}" loading="lazy"><figcaption>${b.cap}</figcaption></figure>`).join('');
 const lb = document.getElementById('lb');
+document.getElementById('morephotos').innerHTML = imgs(morePhotos,false);
 document.getElementById('bts').addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;lb.querySelector('img').src=f.querySelector('img').src;lb.querySelector('p').textContent=f.querySelector('figcaption').textContent;lb.classList.add('on');});
 lb.addEventListener('click',()=>lb.classList.remove('on'));
 addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
-document.getElementById('morephotos').innerHTML = imgs(morePhotos,false);
 document.getElementById('icons').innerHTML = icons.map(i=>`<a href="${i.url}" target="_blank" rel="noopener" aria-label="${i.label}"><img src="${i.icon}" alt="${i.label}" onerror="this.replaceWith(document.createTextNode('${i.label}'))"></a>`).join('');
 document.getElementById('worksecs').innerHTML = work.map(w=>`<div class="wsec"><h3>${w.name}</h3><div class="cards">${w.items.map(i=>`<a class="card" href="${i.url}" target="_blank" rel="noopener"><div class="ph"><img src="${i.img}" alt="${i.title||w.name}" loading="lazy"></div>${i.title?`<p>${i.title} <span>${i.note||''}</span></p>`:''}</a>`).join('')}</div></div>`).join('');
 document.getElementById('yr').textContent = new Date().getFullYear();
