@@ -14,6 +14,7 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:inherit}
+a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
 header{display:flex;justify-content:space-between;align-items:center;padding:28px 4vw;position:sticky;top:0;background:var(--bg);z-index:5}
 .logo{font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-size:15px}
 nav{display:flex;gap:28px}
@@ -26,24 +27,32 @@ main{padding:0 4vw 80px;min-height:70vh}
 h1{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:clamp(56px,13vw,190px);margin:4vh 0 1vh}
 h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(36px,7vw,84px);line-height:1;margin:4vh 0 5vh}
 .sub{text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--soft);margin-bottom:6vh}
+
+/* photo grids (home + more) */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92);transition:filter .3s}
 .grid img:hover{filter:saturate(1.1)}
+
+/* icon row */
 .icons{display:flex;flex-wrap:wrap;gap:28px;align-items:center;margin-top:8vh;padding-top:24px;border-top:1px solid var(--line)}
 .icons a{display:block;text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500;text-decoration:none;transition:opacity .2s}
 .icons a:hover{opacity:.55}
 .icons img{height:36px;width:auto;display:block}
+
+/* work cards */
 .wsec{margin-bottom:9vh}
 .wsec h3{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(20px,3vw,32px);padding-bottom:12px;margin-bottom:20px;border-bottom:1px solid var(--line)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:36px 24px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:36px 28px}
 .card{text-decoration:none;display:block;transition:transform .3s}
-.card .ph{aspect-ratio:4/5;background:#1d181214;overflow:hidden;border-radius:16px;outline:2px solid transparent;outline-offset:5px;transition:outline-color .3s}
+.card .ph{aspect-ratio:16/9;background:#1d181214;overflow:hidden;border-radius:16px;outline:2px solid transparent;outline-offset:5px;transition:outline-color .3s}
 .card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s,filter .4s}
 .card:hover{transform:translateY(-4px)}
 .card:hover .ph{outline-color:var(--ink)}
 .card:hover img{transform:scale(1.04);filter:grayscale(1)}
 .card p{margin-top:16px;text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700}
 .card p span{display:block;font-weight:400;color:var(--soft);margin-top:2px}
+
+/* about + contact */
 .about{display:grid;grid-template-columns:minmax(240px,1fr) 1.4fr;gap:5vw;align-items:start}
 .about img{width:100%;aspect-ratio:4/5;object-fit:cover}
 .about p{max-width:36em;margin-bottom:1.2em;font-size:18px}
@@ -53,31 +62,38 @@ h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clam
 .contact a.big:hover{color:var(--soft)}
 .contact .row{margin-top:6vh;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;border-top:1px solid var(--line);padding-top:24px}
 .contact h3{text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:var(--soft);font-weight:500;margin-bottom:6px}
-footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* more page */
 .rsm{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:8vh}
 .mhead{font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(20px,3vw,32px);padding-bottom:12px;margin:0 0 20px;border-bottom:1px solid var(--line)}
-.bts{columns:3 220px;column-gap:14px}
-.bts figure{break-inside:avoid;margin-bottom:14px;cursor:zoom-in}
-.bts img{width:100%;display:block}
+.bts{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.bts figure{cursor:zoom-in}
+.bts img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-radius:16px}
 .bts figcaption{font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-top:6px;color:var(--soft)}
+
+/* full-screen viewer */
 .lb{display:none;position:fixed;inset:0;background:#1d1812ee;z-index:20;flex-direction:column;align-items:center;justify-content:center;padding:4vw;cursor:zoom-out}
 .lb.on{display:flex}
 .lb img{max-width:100%;max-height:80vh;object-fit:contain}
 .lb p{color:#eae6e0;margin-top:14px;text-transform:uppercase;letter-spacing:.14em;font-size:13px}
 .lb .x{position:absolute;top:18px;right:24px;color:#eae6e0;font-size:34px;line-height:1}
-  @media(max-width:700px){
+
+footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* phones */
+@media(max-width:700px){
 header{position:static;flex-direction:column;align-items:flex-start;gap:12px;padding:20px 5vw 10px}
 nav{flex-wrap:wrap;gap:8px 20px}nav a{font-size:12px}
 main{padding:0 5vw 60px}
 .grid{grid-template-columns:1fr 1fr;gap:8px}
-.cards{grid-template-columns:1fr 1fr;gap:14px}
-.card p{font-size:11px}
+.cards{grid-template-columns:1fr;gap:24px}
+.card p{font-size:12px}
 .icons{gap:22px}.icons img{height:30px}
 .about{grid-template-columns:1fr;gap:24px}.about p{font-size:16px}
 .contact a.big{font-size:clamp(20px,6.4vw,40px);text-transform:none}
 .btn{display:block;text-align:center}
 footer{padding:20px 5vw 32px}
-.bts{columns:2 140px;column-gap:8px}
+.bts{grid-template-columns:1fr 1fr;gap:8px}
 }
 </style>
 </head>
@@ -146,35 +162,37 @@ footer{padding:20px 5vw 32px}
         <a class="big" href="mailto:charjonesactor@gmail.com">Email Me</a>
         <div class="row">
           <div><h3>Representation</h3><p>Alison Caiola Management<br><a href="mailto:alisoncaiola@gmail.com">Email Manager</a> <a class="btn" href="images/ACMres.pdf" target="_blank" rel="noopener">Download resume</a></p></div>
-         <div><h3>Find me</h3>
-  <p><a href="https://www.instagram.com/charnot" target="_blank" rel="noopener">Instagram</a>
-  <br><a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a>
-  <br><a href="https://resumes.actorsaccess.com/charjones" target="_blank" rel="noopener">Actors Access</a>
-  <br><a href="https://app.castingnetworks.com/talent/public-profile/d6741528-69ba-11ed-a803-17445fb00321" target="_blank" rel="noopener">Casting Networks</a>
-  <br><a href="https://www.youtube.com/@charjonesactor/videos" target="_blank" rel="noopener">YouTube</a></p>
-</div>
+          <div><h3>Find me</h3>
+            <p><a href="https://www.instagram.com/charnot" target="_blank" rel="noopener">Instagram</a>
+            <br><a href="https://www.imdb.com/name/nm15708032/" target="_blank" rel="noopener">IMDb</a>
+            <br><a href="https://resumes.actorsaccess.com/charjones" target="_blank" rel="noopener">Actors Access</a>
+            <br><a href="https://app.castingnetworks.com/talent/public-profile/d6741528-69ba-11ed-a803-17445fb00321" target="_blank" rel="noopener">Casting Networks</a>
+            <br><a href="https://www.youtube.com/@charjonesactor/videos" target="_blank" rel="noopener">YouTube</a></p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 </main>
+
 <div class="lb" id="lb"><span class="x">×</span><img alt=""><p></p></div>
 <footer><span>&copy; <span id="yr"></span> Char Jones</span><span>Site by Char</span></footer>
 
 <script>
 // ---- EDIT THESE ----
+// Every {...} item in a list needs a comma after it, except the last one.
 
 const headshots = ["images/CJ2.jpg","images/CJ118.jpg","images/CJ3.jpg","images/CJhs.png"];
 // "More" tab: everything else.
-const morePhotos = ["images/CJcu.png","images/CJeff-3.jpg", "images/headshot1.jpg","images/headshot2.jpg","images/headshot3.jpg","images/headshot5.png", "images/CH-lace.jpg", "images/CJ-headshot.jpg"];
+const morePhotos = ["images/CJcu.png","images/CJeff-3.jpg","images/headshot1.jpg","images/headshot2.jpg","images/headshot3.jpg","images/headshot5.png","images/CH-lace.jpg","images/CJ-headshot.jpg"];
 
 const icons = [
   {label:"Email",         icon:"images/icons/Email.png", url:"mailto:charjonesactor@gmail.com"},
-  {label:"IMDb",          icon:"images/icons/IM.png",   url:"https://www.imdb.com/name/nm15708032/"},
-  {label:"Instagram",     icon:"images/icons/IG.png",   url:"https://www.instagram.com/charnot"},
-  {label:"Actors Access", icon:"images/icons/show.png", url:"https://resumes.actorsaccess.com/charjones"},
-  {label:"VoiceOver",     icon:"images/icons/Mic.png",  url:"https://youtu.be/mrXeWzvyv5I?si=fUBarnfndLwvhTTf"},
-  {label:"Reel",          icon:"images/icons/YT.png",   url:"https://www.youtube.com/@charjonesactor/videos"}
+  {label:"IMDb",          icon:"images/icons/IM.png",    url:"https://www.imdb.com/name/nm15708032/"},
+  {label:"Instagram",     icon:"images/icons/IG.png",    url:"https://www.instagram.com/charnot"},
+  {label:"Actors Access", icon:"images/icons/show.png",  url:"https://resumes.actorsaccess.com/charjones"},
+  {label:"VoiceOver",     icon:"images/icons/Mic.png",   url:"https://youtu.be/mrXeWzvyv5I?si=fUBarnfndLwvhTTf"},
+  {label:"Reel",          icon:"images/icons/YT.png",    url:"https://www.youtube.com/@charjonesactor/videos"}
 ];
 
 const work = [
@@ -200,10 +218,10 @@ const work = [
     {img:"images/snl.png", url:"https://youtu.be/HmfDtObv1tg?si=wnFwGKziZR4ypqBl", title:"We Got Too High", note:""},
     {img:"images/bowen.png", url:"https://youtu.be/VsBSCj2oqwU?si=tIh5jIbanKoGxjJI", title:"Bowen's Straight", note:""},
     {img:"images/conf.png", url:"https://youtu.be/KEeznesHIk4?si=xyY6DKveU0PQgNLn", title:"Confidence Class", note:""}
-  ]},
-
+  ]}
 ];
-  const bts = [
+
+const bts = [
   {img:"images/bts/bts1.jpg", cap:"Balls to the Walls"},
   {img:"images/bts/bts2.jpg", cap:"BIC on Film"},
   {img:"images/bts/bts3.jpg", cap:"Dance Workshop"},
@@ -227,9 +245,9 @@ const work = [
 // --------------------
 const imgs = (a,l)=>a.map((s,i)=>`<img src="${s}" alt="Char Jones photo ${i+1}" loading="${l&&i<3?'eager':'lazy'}">`).join('');
 document.getElementById('heads').innerHTML = imgs(headshots,true);
+document.getElementById('morephotos').innerHTML = imgs(morePhotos,false);
 document.getElementById('bts').innerHTML = bts.map(b=>`<figure><img src="${b.img}" alt="${b.cap}" loading="lazy"><figcaption>${b.cap}</figcaption></figure>`).join('');
 const lb = document.getElementById('lb');
-document.getElementById('morephotos').innerHTML = imgs(morePhotos,false);
 document.getElementById('bts').addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;lb.querySelector('img').src=f.querySelector('img').src;lb.querySelector('p').textContent=f.querySelector('figcaption').textContent;lb.classList.add('on');});
 lb.addEventListener('click',()=>lb.classList.remove('on'));
 addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
