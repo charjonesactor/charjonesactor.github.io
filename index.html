@@ -7,9 +7,9 @@
 <meta name="description" content="Char Jones, actor. Headshots, reel, resume and contact.">
 <link rel="icon" href="images/shakespeare.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#eae6e0;--ink:#1d1812;--soft:#6b5d47;--line:#1d181233}
+:root{--bg:##efe9dd;--ink:#1d1812;--soft:#6b5d47;--line:#1d181233}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -24,8 +24,7 @@ main{padding:0 4vw 80px;min-height:70vh}
 .view{display:none}
 .view.on{display:block;animation:in .4s ease}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-h1{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:clamp(56px,13vw,190px);margin:4vh 0 1vh}
-h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(36px,7vw,84px);line-height:1;margin:4vh 0 5vh}
+h1{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:clamp(44px,10vw,140px);margin:4vh 0 1vh}h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(36px,7vw,84px);line-height:1;margin:4vh 0 5vh}
 .sub{text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--soft);margin-bottom:6vh}
 
 /* photo grids (home + more) */
@@ -55,7 +54,7 @@ h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clam
 /* about + contact */
 .about{display:grid;grid-template-columns:minmax(240px,1fr) 1.4fr;gap:5vw;align-items:start}
 .about img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.about p{max-width:36em;margin-bottom:1.2em;font-size:18px}
+.about p{font-family:'Newsreader',Georgia,serif;max-width:36em;margin-bottom:1.2em;font-size:20px;line-height:1.65}
 .btn{display:inline-block;margin-top:12px;border:1px solid var(--ink);padding:12px 26px;text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500;text-decoration:none}
 .btn:hover{background:var(--ink);color:var(--bg)}
 .contact a.big{display:block;font-weight:800;text-transform:uppercase;font-size:clamp(28px,6vw,72px);line-height:1.1;text-decoration:none;margin-bottom:2vh;overflow-wrap:anywhere}
