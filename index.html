@@ -7,9 +7,9 @@
 <meta name="description" content="Char Jones, actor. Headshots, reel, resume and contact.">
 <link rel="icon" href="images/shakespeare.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:##efe9dd;--ink:#1d1812;--soft:#6b5d47;--line:#1d181233}
+:root{--bg:#eae6e0;--ink:#1d1812;--soft:#6b5d47;--line:#1d181233}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -24,7 +24,8 @@ main{padding:0 4vw 80px;min-height:70vh}
 .view{display:none}
 .view.on{display:block;animation:in .4s ease}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-h1{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.95;font-size:clamp(44px,10vw,140px);margin:4vh 0 1vh}h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(36px,7vw,84px);line-height:1;margin:4vh 0 5vh}
+h1{display:block;width:max-content;white-space:nowrap;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;font-size:12vw;margin:3vh 0 1.5vh}
+h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(36px,7vw,84px);line-height:1;margin:4vh 0 5vh}
 .sub{text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--soft);margin-bottom:6vh}
 
 /* photo grids (home + more) */
@@ -54,7 +55,7 @@ h1{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.9
 /* about + contact */
 .about{display:grid;grid-template-columns:minmax(240px,1fr) 1.4fr;gap:5vw;align-items:start}
 .about img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.about p{font-family:'Newsreader',Georgia,serif;max-width:36em;margin-bottom:1.2em;font-size:20px;line-height:1.65}
+.about p{font-family:'Space Grotesk','Helvetica Neue',Arial,sans-serif;max-width:36em;margin-bottom:1.2em;font-size:18px;line-height:1.65}
 .btn{display:inline-block;margin-top:12px;border:1px solid var(--ink);padding:12px 26px;text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500;text-decoration:none}
 .btn:hover{background:var(--ink);color:var(--bg)}
 .contact a.big{display:block;font-weight:800;text-transform:uppercase;font-size:clamp(28px,6vw,72px);line-height:1.1;text-decoration:none;margin-bottom:2vh;overflow-wrap:anywhere}
@@ -77,7 +78,16 @@ h1{font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.9
 .lb p{color:#eae6e0;margin-top:14px;text-transform:uppercase;letter-spacing:.14em;font-size:13px}
 .lb .x{position:absolute;top:18px;right:24px;color:#eae6e0;font-size:34px;line-height:1}
 
-footer{padding:24px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+footer{padding:32px 4vw 40px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.fsocial{display:flex;flex-wrap:wrap;gap:26px;align-items:center;padding-bottom:22px;margin-bottom:22px;border-bottom:1px solid var(--line)}
+.fsocial a{color:inherit;text-decoration:none;transition:opacity .2s}
+.fsocial a:hover{opacity:.55}
+.fsocial img{height:28px;width:auto;display:block}
+body[data-view="home"] .fsocial,body[data-view="contact"] .fsocial{display:none}
+.fline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.vids{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px}
+.vids iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;background:#1d181214;display:block}
+.vids p{margin-top:10px;text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700}
 
 /* phones */
 @media(max-width:700px){
@@ -91,7 +101,7 @@ main{padding:0 5vw 60px}
 .about{grid-template-columns:1fr;gap:24px}.about p{font-size:16px}
 .contact a.big{font-size:clamp(20px,6.4vw,40px);text-transform:none}
 .btn{display:block;text-align:center}
-footer{padding:20px 5vw 32px}
+footer{padding:24px 5vw 32px}.vids{grid-template-columns:1fr}
 .bts{grid-template-columns:1fr 1fr;gap:8px}
 }
 </style>
@@ -103,7 +113,7 @@ footer{padding:20px 5vw 32px}
     <a href="#home" data-v="home">Home</a>
     <a href="#work" data-v="work">Work</a>
     <a href="#about" data-v="about">About</a>
-    <a href="#more" data-v="more">Addt</a>
+    <a href="#more" data-v="more">More</a>
     <a href="#contact" data-v="contact">Contact</a>
   </nav>
 </header>
@@ -111,7 +121,7 @@ footer{padding:20px 5vw 32px}
 <main>
   <!-- HOME -->
   <section class="view" id="home">
-    <h1>Char Jones</h1>
+    <h1 id="name">Char Jones</h1>
     <p class="sub">Actor &middot; New York</p>
     <div class="grid" id="heads"></div>
     <div class="icons" id="icons"></div>
@@ -129,9 +139,9 @@ footer{padding:20px 5vw 32px}
     <div class="about">
       <img src="images/CharJonesHeadshot.png" alt="Char Jones">
       <div>
-        <p>Char Jones grew up with a Broadway character-actor father and a drama-teacher mother in a big, wonderfully theatrical, sing-at-the-dinner-table kind of family. After a brief detour into the tech world, Char pivoted to full-time to acting pursuing storytelling, clowning, classical acting, and everythign in between.</p>
-        <p>Char is based in New York City, where she grew up, with ties to Los Angeles and Chicago. She made her professional debut at the age of eight as Bo Gorden in Off the Map, and her acting career has since forayed into film, television, regional theatre, and Off-Broadway. She holds both a Bachelor’s and Master’s degree in Computer Science from Northwestern University, where she also studied Theatre and Dance. Char is classically trained and has studied with the Royal Shakespeare Company, Juilliard Extension Program, T. Schreiber Studio, Katie Cappiello, UCB, and Prague Shakespeare Company. She is also a trained aerialist, dancer, and diver.</p>
-        <p>Alongside acting, Char has spent plenty of time on the other side of the business. She has worked on The 25th Annual Putnam County Spelling Bee Off-Broadway and The Rocky Horror Show on Broadway, as well as with the Amateur Comedy Club and Theatre for Young Audiences (TYA) programs throughout the Northeast. Earlier in her career, she worked in talent management at IMG Models and supported Ronan Farrow at Ronan Production Group, working on projects across The New Yorker, HBO, and Audible. Having worked both onstage and behind the scenes, Char has been inspired by story-tellers in a range of forms and loves contributing to the success of artists, jounalists, and creatives.</p>
+        <p>Char Jones grew up with a Broadway character-actor father and a drama-teacher mother in a big, wonderfully theatrical, sing-at-the-dinner-table kind of family. It’s no surprise that she grew up to pursue storytelling, clowning, and classical acting—although she did briefly detour into the tech world, pursuing other creative passions before eventually pivoting full-time to acting.</p>
+        <p>Char is based in New York City, where she grew up, with ties to Los Angeles and Chicago. She made her professional debut at the age of eight as Bo Gordon in Off the Map, and her acting career has since taken her through film, television, regional theatre, and Off-Broadway. She holds both a Bachelor’s and Master’s degree in Computer Science from Northwestern University, where she also studied Theatre and Dance. Char is classically trained and has studied with the Royal Shakespeare Company, Juilliard Extension Program, T. Schreiber Studio, Katie Cappiello, UCB, and Prague Shakespeare Company. She is also a trained aerialist, dancer, and diver.</p>
+        <p>Alongside acting, Char has spent plenty of time on the other side of the curtain. She has worked on The 25th Annual Putnam County Spelling Bee Off-Broadway and The Rocky Horror Show on Broadway, as well as with the Amateur Comedy Club and Theatre for Young Audiences (TYA) programs throughout the Northeast. Earlier in her career, she worked in talent management at IMG Models and supported Ronan Farrow at Ronan Production Group, working on projects across The New Yorker, HBO, and Audible. Having worked both onstage and behind the scenes, Char has a pretty good sense of all the moving parts that go into making a story—and loves being part of the process from wherever she’s needed.</p>
         <a class="btn" href="images/Resume.pdf" target="_blank" rel="noopener">Download resume</a>
       </div>
     </div>
@@ -139,7 +149,7 @@ footer{padding:20px 5vw 32px}
 
   <!-- MORE -->
   <section class="view" id="more">
-    <h2>Additional Materials</h2>
+    <h2>More</h2>
     <h3 class="mhead">Resume</h3>
     <div class="rsm">
       <a class="btn" href="images/Resume.pdf" target="_blank" rel="noopener">View resume (PDF)</a>
@@ -150,6 +160,9 @@ footer{padding:20px 5vw 32px}
 
     <h3 class="mhead" style="margin-top:8vh">Behind the scenes</h3>
     <div class="bts" id="bts"></div>
+
+    <h3 class="mhead" style="margin-top:8vh">Videos</h3>
+    <div class="vids" id="vids"></div>
   </section>
 
   <!-- CONTACT -->
@@ -175,7 +188,7 @@ footer{padding:20px 5vw 32px}
 </main>
 
 <div class="lb" id="lb"><span class="x">×</span><img alt=""><p></p></div>
-<footer><span>&copy; <span id="yr"></span> Char Jones</span><span>Site by Char</span></footer>
+<footer><div class="fsocial" id="fsocial"></div><div class="fline"><span>&copy; <span id="yr"></span> Char Jones</span><span>Site by Char</span></div></footer>
 
 <script>
 // ---- EDIT THESE ----
@@ -209,7 +222,6 @@ const work = [
     {img:"images/1.png", url:"https://www.instagram.com/p/DR0cQQpkT-n/?img_index=2", title:"As Youse Like It", note:"Celia"},
     {img:"images/2.png", url:"https://www.instagram.com/outofthebluecu/", title:"Out of the Blue", note:"Ashley"},
     {img:"images/3.png", url:"https://pragueshakespeare.com/", title:"Twelfth Night", note:"Olivia"},
-    {img:"images/enemy.png", url:"https://theaterforthenewcity.net/shows/an-enemy-of-the-people/", title:"Enemy of the People", note:"Ejlif"},
     {img:"images/4.png", url:"https://seasons.lamama.org/shows/script-in-the-closet-2024", title:"The Script in the Closet", note:"Zoey"}
   ]},
   {name:"SNL", items:[
@@ -221,25 +233,49 @@ const work = [
   ]}
 ];
 
+// YouTube videos on the More page. ID = the part after youtu.be/ (before any "?")
+const videos = [
+  {id:"eNCb5Bny6bs", title:"Reel"},
+  {id:"mrXeWzvyv5I", title:"Voiceover"}
+];
+// Footer icons (shown on every page except Home and Contact)
+const social = [
+  {label:"IMDb",      icon:"images/icons/IM.png", url:"https://www.imdb.com/name/nm15708032/"},
+  {label:"Instagram", icon:"images/icons/IG.png", url:"https://www.instagram.com/charnot"},
+  {label:"YouTube",   icon:"images/icons/YT.png", url:"https://www.youtube.com/@charjonesactor/videos"}
+];
+
 const bts = [
   {img:"images/bts/bts1.jpg", cap:"Balls to the Walls"},
   {img:"images/bts/bts2.jpg", cap:"BIC on Film"},
   {img:"images/bts/bts3.jpg", cap:"Dance Workshop"},
-  {img:"images/bts/bts4.png", cap:"SNL Spotting "},
-  {img:"images/bts/bts5.png", cap:"Spelling Beet"},
-  {img:"images/bts/bts6.png", cap:"Selfie"},
-  {img:"images/bts/jol.png", cap:"Jolene Ad"},
-  {img:"images/bts/watercolor.jpg", cap:"Watercolor"},
-  {img:"images/bts/promo.png", cap:"Script Promo"},
-  {img:"images/bts/steel.jpg", cap:"Steel Magnolias"},
-  {img:"images/bts/CJdance.png", cap:"moving"},
-  {img:"images/bts/dancing.jpg", cap:"More Dance"},
+  {img:"images/bts/bts4.png", cap:"Char BTS"},
+  {img:"images/bts/bts5.png", cap:"On set"},
+  {img:"images/bts/bts6.png", cap:"FBI still"},
+  {img:"images/bts/07.jpg", cap:"Jolene ad still"},
+  {img:"images/bts/08.jpg", cap:"Watercolor"},
+  {img:"images/bts/09.jpg", cap:"SNL spotting"},
+  {img:"images/bts/10.jpg", cap:"Spelling Bee"},
+  {img:"images/bts/11.jpg", cap:"Richard Currie, late mentor & director"},
+  {img:"images/bts/12.jpg", cap:"Dancing with the Stars"},
+  {img:"images/bts/13.jpg", cap:"Steel Magnolias"},
+  {img:"images/bts/14.jpg", cap:"Truvy alert!"},
+  {img:"images/bts/15.jpg", cap:"Janet, The Drowsy Chaperone"},
+  {img:"images/bts/16.jpg", cap:"If Sherlock Holmes Were a Woman"},
+  {img:"images/bts/17.jpg", cap:"Mean Girls, Stoner"},
+  {img:"images/bts/18.jpg", cap:"Earth Cups merch ad"},
+  {img:"images/bts/19.jpg", cap:"2026 selfie"}
 ];
 // --------------------
 const imgs = (a,l)=>a.map((s,i)=>`<img src="${s}" alt="Char Jones photo ${i+1}" loading="${l&&i<3?'eager':'lazy'}">`).join('');
 document.getElementById('heads').innerHTML = imgs(headshots,true);
 document.getElementById('morephotos').innerHTML = imgs(morePhotos,false);
 document.getElementById('bts').innerHTML = bts.map(b=>`<figure><img src="${b.img}" alt="${b.cap}" loading="lazy"><figcaption>${b.cap}</figcaption></figure>`).join('');
+document.getElementById('vids').innerHTML = videos.map(v=>`<div><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/${v.id}" title="${v.title}" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe><p>${v.title}</p></div>`).join('');
+document.getElementById('fsocial').innerHTML = social.map(i=>`<a href="${i.url}" target="_blank" rel="noopener" aria-label="${i.label}"><img src="${i.icon}" alt="${i.label}" onerror="this.replaceWith(document.createTextNode('${i.label}'))"></a>`).join('');
+function fit(){const h=document.getElementById('name');if(!h||!h.offsetParent)return;h.style.fontSize='100px';const w=h.parentElement.clientWidth;h.style.fontSize=Math.floor(100*w/h.getBoundingClientRect().width)+'px';}
+addEventListener('resize',fit);
+if(document.fonts)document.fonts.ready.then(fit);
 const lb = document.getElementById('lb');
 document.getElementById('bts').addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;lb.querySelector('img').src=f.querySelector('img').src;lb.querySelector('p').textContent=f.querySelector('figcaption').textContent;lb.classList.add('on');});
 lb.addEventListener('click',()=>lb.classList.remove('on'));
@@ -252,6 +288,8 @@ function show(){
   const v = document.getElementById(h) ? h : 'home';
   document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id===v));
   document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.v===v));
+  document.body.dataset.view=v;
+  fit();
   window.scrollTo(0,0);
 }
 addEventListener('hashchange',show);show();
