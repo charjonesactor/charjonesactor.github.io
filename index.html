@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta property="og:title" content="Char Jones | Actor | Writer | Producer">
-<meta property="og:description" content="Char Jones, actor based in New York. Reel, headshots, resume and contact.">
-<meta property="og:image" content="https://charjonesactor.github.io/images/CJ2.jpg">
-<meta property="og:type" content="website">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Char Jones | Actor</title>
-<meta name="description" content="Char Jones, actor. Headshots, reel, resume and contact.">
+<meta name="description" content="Char Jones, actor based in New York. Reel, headshots, resume and contact.">
+<meta property="og:title" content="Char Jones | Actor | Writer | Producer">
+<meta property="og:description" content="Char Jones, actor based in New York. Reel, headshots, resume and contact.">
+<meta property="og:image" content="https://charjonesactor.github.io/images/CJ2.jpg">
+<meta property="og:url" content="https://charjonesactor.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://charjonesactor.github.io/">
 <link rel="icon" href="images/shakespeare.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Char Jones","jobTitle":"Actor","url":"https://charjonesactor.github.io/","image":"https://charjonesactor.github.io/images/CJ2.jpg","sameAs":["https://www.imdb.com/name/nm15708032/","https://www.instagram.com/charnot","https://resumes.actorsaccess.com/charjones","https://www.youtube.com/@charjonesactor"]}</script>
 <style>
-:root{--bg:#eae6e0;--ink:#1d1812;--soft:#6b5d47;--line:#1d181233}
+:root{--bg:#e6e1d6;--bgtop:#eae4d8;--bgmid:#e2e0da;--bgend:#cdd8e0;--ink:#1d1812;--soft:#5f5646;--line:#1d181233}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;min-height:100%}
+body{background:var(--bg);background:linear-gradient(165deg,var(--bgtop) 0%,var(--bgmid) 45%,var(--bgend) 100%) fixed;color:var(--ink);font-family:'Archivo','Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 a{color:inherit}
-a:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
-header{display:flex;justify-content:space-between;align-items:center;padding:28px 4vw;position:sticky;top:0;background:var(--bg);z-index:5}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+header{display:flex;justify-content:space-between;align-items:center;padding:28px 4vw;position:sticky;top:0;background:rgba(232,228,219,.78);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);z-index:5}
 .logo{font-weight:800;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-size:15px}
 nav{display:flex;gap:28px}
 nav a{text-transform:uppercase;letter-spacing:.14em;font-size:13px;font-weight:500;text-decoration:none;padding-bottom:3px;border-bottom:1px solid transparent}
@@ -28,14 +33,20 @@ main{padding:0 4vw 80px;min-height:70vh}
 .view{display:none}
 .view.on{display:block;animation:in .4s ease}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.view.on{animation:none}html{scroll-behavior:auto}.card,.card img{transition:none}}
 h1{display:block;width:max-content;white-space:nowrap;font-weight:800;text-transform:uppercase;letter-spacing:-.02em;line-height:.9;font-size:12vw;margin:3vh 0 1.5vh}
 h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;font-size:clamp(36px,7vw,84px);line-height:1;margin:4vh 0 5vh}
 .sub{text-transform:uppercase;letter-spacing:.2em;font-size:13px;color:var(--soft);margin-bottom:6vh}
 
-/* photo grids (home + more) */
+/* photo grids */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
-.grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92);transition:filter .3s}
+.grid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92);transition:filter .3s;cursor:zoom-in}
 .grid img:hover{filter:saturate(1.1)}
+
+/* reel (home) */
+.reel{margin-top:10vh}
+.reel .frame{position:relative;max-width:1100px}
+.reel iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;background:#1d181214;display:block}
 
 /* icon row */
 .icons{display:flex;flex-wrap:wrap;gap:28px;align-items:center;margin-top:8vh;padding-top:24px;border-top:1px solid var(--line)}
@@ -95,10 +106,11 @@ body[data-view="home"] .fsocial,body[data-view="contact"] .fsocial{display:none}
 
 /* phones */
 @media(max-width:700px){
-header{position:static;flex-direction:column;align-items:flex-start;gap:12px;padding:20px 5vw 10px}
+header{position:static;flex-direction:column;align-items:flex-start;gap:12px;padding:20px 5vw 10px;background:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
 nav{flex-wrap:wrap;gap:8px 20px}nav a{font-size:12px}
 main{padding:0 5vw 60px}
 .grid{grid-template-columns:1fr 1fr;gap:8px}
+.reel{margin-top:6vh}
 .cards{grid-template-columns:1fr;gap:24px}
 .card p{font-size:12px}
 .icons{gap:22px}.icons img{height:30px}
@@ -128,6 +140,14 @@ footer{padding:24px 5vw 32px}.vids{grid-template-columns:1fr}
     <h1 id="name">Char Jones</h1>
     <p class="sub">Actor &middot; New York</p>
     <div class="grid" id="heads"></div>
+
+    <div class="reel">
+      <h3 class="mhead">Reel</h3>
+      <div class="frame">
+        <iframe src="https://www.youtube-nocookie.com/embed/ys-yy2V2jEg?rel=0" title="Char Jones acting reel" loading="lazy" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+
     <div class="icons" id="icons"></div>
   </section>
 
@@ -141,12 +161,13 @@ footer{padding:24px 5vw 32px}.vids{grid-template-columns:1fr}
   <section class="view" id="about">
     <h2>About</h2>
     <div class="about">
-      <img src="images/CharJonesHeadshot.png" alt="Char Jones">
+      <img src="images/CharJonesHeadshot.png" alt="Char Jones headshot">
       <div>
         <p>Char Jones grew up with a Broadway character-actor father and a drama-teacher mother in a big, theatrical, sing-at-the-dinner-table kind of family. Despite a brief detour into the tech world, Char recently pivoted full-time to classical acting, storytelling, clowning, and everything that happens in between. </p>
         <p>Char is based in New York City, where she grew up, and has ties to Los Angeles and Chicago. She made her professional debut at the age of eight as Bo Gorden in Off the Map, and her acting career has since forayed into film, television, regional theatre, and Off-Broadway. She holds both a Bachelor’s and Master’s degree in Computer Science from Northwestern University, where she also studied Theatre and Dance. Char is classically trained and has studied with the Royal Shakespeare Company, Juilliard Extension Program, T. Schreiber Studio, Katie Cappiello, UCB, and Prague Shakespeare Company. She is also a trained aerialist, dancer, and diver.</p>
         <p>Alongside acting, Char has spent plenty of time on the other side of the business. She has worked on The 25th Annual Putnam County Spelling Bee Off-Broadway and The Rocky Horror Show on Broadway, as well as with the Amateur Comedy Club and Theatre for Young Audiences programs throughout the Northeast. Earlier in her career, she worked in talent management at IMG Models and supported Ronan Farrow at Ronan Production Group, working on projects across The New Yorker, HBO, and Audible. Having worked both onstage and behind the scenes, Char feels a deep appreciation for artists, journalists, & creatives. Please reach out on the contacts page for any inquiries.</p>
-       <a class="btn" href="images/Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+        <a class="btn" href="images/Resume.pdf" target="_blank" rel="noopener">Download resume</a>
+        <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
   </section>
@@ -165,7 +186,7 @@ footer{padding:24px 5vw 32px}.vids{grid-template-columns:1fr}
     <h3 class="mhead" style="margin-top:8vh">Behind the scenes</h3>
     <div class="bts" id="bts"></div>
 
-    <h3 class="mhead" style="margin-top:8vh">Videos</h3>
+    <h3 class="mhead" style="margin-top:8vh">Voiceover</h3>
     <div class="vids" id="vids"></div>
   </section>
 
@@ -173,7 +194,7 @@ footer{padding:24px 5vw 32px}.vids{grid-template-columns:1fr}
   <section class="view contact" id="contact">
     <h2>Contact</h2>
     <div class="about">
-      <img src="images/digidance.jpg" alt="Char Jones"><!-- change to any photo -->
+      <img src="images/digidance.jpg" alt="Char Jones dancing"><!-- change to any photo -->
       <div>
         <a class="big" href="mailto:charjonesactor@gmail.com">Email Me</a>
         <div class="row">
@@ -192,7 +213,7 @@ footer{padding:24px 5vw 32px}.vids{grid-template-columns:1fr}
   </section>
 </main>
 
-<div class="lb" id="lb"><span class="x">×</span><img alt=""><p></p></div>
+<div class="lb" id="lb" role="dialog" aria-label="Photo viewer"><span class="x">×</span><img alt=""><p></p></div>
 <footer><div class="fsocial" id="fsocial"></div><div class="fline"><span>&copy; <span id="yr"></span> Char Jones</span><span>Site by Char Jones</span></div></footer>
 
 <script>
@@ -210,7 +231,7 @@ const icons = [
   {label:"Actors Access", icon:"images/icons/show.png",  url:"https://resumes.actorsaccess.com/charjones"},
   {label:"VoiceOver",     icon:"images/icons/Mic.png",   url:"https://youtu.be/mrXeWzvyv5I?si=fUBarnfndLwvhTTf"},
   {label:"Reel",          icon:"images/icons/YT.png",    url:"https://www.youtube.com/@charjonesactor/videos"},
-  {label:"LinkedIn",          icon:"images/icons/link.png",    url:"https://www.linkedin.com/in/charlotte-jones-4a11981b5/"}
+  {label:"LinkedIn",      icon:"images/icons/link.png",  url:"https://www.linkedin.com/in/charlotte-jones-4a11981b5/"}
 ];
 
 const work = [
@@ -232,7 +253,7 @@ const work = [
     {img:"images/2.png", url:"https://www.instagram.com/outofthebluecu/", title:"Out of the Blue", note:"Ashley"},
     {img:"images/3.png", url:"https://pragueshakespeare.com/", title:"Twelfth Night", note:"Olivia"},
     {img:"images/4.png", url:"https://seasons.lamama.org/shows/script-in-the-closet-2024", title:"The Script in the Closet", note:"Zoey"},
-    {img:"images/enemy.png", url:"https://theaterforthenewcity.net/shows/an-enemy-of-the-people/", title:"Enemy of the People", note:"Ejlif"},
+    {img:"images/enemy.png", url:"https://theaterforthenewcity.net/shows/an-enemy-of-the-people/", title:"Enemy of the People", note:"Ejlif"}
   ]},
   {name:"SNL", items:[
     {img:"images/farm.png", url:"https://youtu.be/76bXoIr9M3k?si=ednZ8OO1flAGURwZ", title:"Tampon Farm", note:""},
@@ -243,60 +264,56 @@ const work = [
   ]}
 ];
 
-// YouTube videos on the More page. ID = the part after youtu.be/ (before any "?")
+// YouTube videos on the More page (reel now lives on Home). ID = the part after youtu.be/ (before any "?")
 const videos = [
-  {id:"ys-yy2V2jEg", title:"Reel"},
   {id:"mrXeWzvyv5I", title:"Voiceover"}
 ];
 // Footer icons (shown on every page except Home and Contact)
-const social = [
-  {label:"Email",         icon:"images/icons/Email.png", url:"mailto:charjonesactor@gmail.com"},
-  {label:"IMDb",          icon:"images/icons/IM.png",    url:"https://www.imdb.com/name/nm15708032/"},
-  {label:"Instagram",     icon:"images/icons/IG.png",    url:"https://www.instagram.com/charnot"},
-  {label:"Actors Access", icon:"images/icons/show.png",  url:"https://resumes.actorsaccess.com/charjones"},
-  {label:"VoiceOver",     icon:"images/icons/Mic.png",   url:"https://youtu.be/mrXeWzvyv5I?si=fUBarnfndLwvhTTf"},
-  {label:"Reel",          icon:"images/icons/YT.png",    url:"https://www.youtube.com/@charjonesactor/videos"},
-  {label:"LinkedIn",          icon:"images/icons/link.png",    url:"https://www.linkedin.com/in/charlotte-jones-4a11981b5/"}
-];
+const social = icons;
 
 const bts = [
- {img:"images/bts/bestmed.png", cap:"Best Medicine"},
+  {img:"images/bts/bestmed.png", cap:"Best Medicine"},
   {img:"images/bts/bts1.jpg", cap:"Balls to the Walls"},
   {img:"images/bts/bts2.jpg", cap:"BIC on Film"},
   {img:"images/bts/bts3.jpg", cap:"Dance Workshop"},
   {img:"images/bts/bts4.png", cap:"SNL Spotting"},
   {img:"images/bts/bts5.png", cap:"Spelling Bee"},
-    {img:"images/bts/CJdance.png", cap:"Dance"},
+  {img:"images/bts/CJdance.png", cap:"Dance"},
   {img:"images/bts/dancing.jpg", cap:"More Dance"},
-   {img:"images/bts/watercolor.jpg", cap:"Watercolor Headshot"},
+  {img:"images/bts/watercolor.jpg", cap:"Watercolor Headshot"},
   {img:"images/bts/group.png", cap:"Group Shot"},
-      {img:"images/bts/jol.png", cap:"Jolene BTS"},
-     {img:"images/bts/promo.png", cap:"Script Promo NYC"},
-   {img:"images/bts/moving.png", cap:"moving"},
+  {img:"images/bts/jol.png", cap:"Jolene BTS"},
+  {img:"images/bts/promo.png", cap:"Script Promo NYC"},
+  {img:"images/bts/moving.png", cap:"Moving"},
   {img:"images/bts/translate.png", cap:"The Things that Don't Translate"},
-       {img:"images/bts/steel.jpg", cap:"Steel Magnolias"},
-       {img:"images/bts/contortion.png", cap:"Contortion"},
+  {img:"images/bts/steel.jpg", cap:"Steel Magnolias"},
+  {img:"images/bts/contortion.png", cap:"Contortion"},
   {img:"images/bts/drama.jpg", cap:"Tape Still"},
-   {img:"images/bts/pkbts.png", cap:"PK BTS"},
-   {img:"images/bts/fullbody.png", cap:"Full Body"},
-  
+  {img:"images/bts/pkbts.png", cap:"PK BTS"},
+  {img:"images/bts/fullbody.png", cap:"Full Body"},
   {img:"images/bts/bts6.png", cap:"Selfie"}
 ];
 // --------------------
-const imgs = (a,l)=>a.map((s,i)=>`<img src="${s}" alt="Char Jones photo ${i+1}" loading="${l&&i<3?'eager':'lazy'}">`).join('');
+const imgs = (a,l)=>a.map((s,i)=>`<img src="${s}" alt="Char Jones headshot ${i+1}" loading="${l&&i<3?'eager':'lazy'}">`).join('');
 document.getElementById('heads').innerHTML = imgs(headshots,true);
 document.getElementById('morephotos').innerHTML = imgs(morePhotos,false);
 document.getElementById('bts').innerHTML = bts.map(b=>`<figure><img src="${b.img}" alt="${b.cap}" loading="lazy"><figcaption>${b.cap}</figcaption></figure>`).join('');
-document.getElementById('vids').innerHTML = videos.map(v=>`<div><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/${v.id}" title="${v.title}" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe><p>${v.title}</p></div>`).join('');
-document.getElementById('fsocial').innerHTML = social.map(i=>`<a href="${i.url}" target="_blank" rel="noopener" aria-label="${i.label}"><img src="${i.icon}" alt="${i.label}" onerror="this.replaceWith(document.createTextNode('${i.label}'))"></a>`).join('');
+document.getElementById('vids').innerHTML = videos.map(v=>`<div><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/${v.id}" title="${v.title}" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe><p>${v.title}</p></div>`).join('');
+const link = i=>`<a href="${i.url}" target="_blank" rel="noopener" aria-label="${i.label}"><img src="${i.icon}" alt="${i.label}" onerror="this.replaceWith(document.createTextNode('${i.label}'))"></a>`;
+document.getElementById('fsocial').innerHTML = social.map(link).join('');
+document.getElementById('icons').innerHTML = icons.map(link).join('');
 function fit(){const h=document.getElementById('name');if(!h||!h.offsetParent)return;h.style.fontSize='100px';const w=h.parentElement.clientWidth;h.style.fontSize=Math.floor(100*w/h.getBoundingClientRect().width)+'px';}
 addEventListener('resize',fit);
 if(document.fonts)document.fonts.ready.then(fit);
+
+// full-screen viewer for headshots, more photos and behind-the-scenes
 const lb = document.getElementById('lb');
-document.getElementById('bts').addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;lb.querySelector('img').src=f.querySelector('img').src;lb.querySelector('p').textContent=f.querySelector('figcaption').textContent;lb.classList.add('on');});
+function openLb(src,cap){lb.querySelector('img').src=src;lb.querySelector('p').textContent=cap||'';lb.classList.add('on');}
+document.getElementById('bts').addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;openLb(f.querySelector('img').src,f.querySelector('figcaption').textContent);});
+['heads','morephotos'].forEach(id=>document.getElementById(id).addEventListener('click',e=>{if(e.target.tagName==='IMG')openLb(e.target.src,'');}));
 lb.addEventListener('click',()=>lb.classList.remove('on'));
 addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on');});
-document.getElementById('icons').innerHTML = icons.map(i=>`<a href="${i.url}" target="_blank" rel="noopener" aria-label="${i.label}"><img src="${i.icon}" alt="${i.label}" onerror="this.replaceWith(document.createTextNode('${i.label}'))"></a>`).join('');
+
 document.getElementById('worksecs').innerHTML = work.map(w=>`<div class="wsec"><h3>${w.name}</h3><div class="cards">${w.items.map(i=>`<a class="card" href="${i.url}" target="_blank" rel="noopener"><div class="ph"><img src="${i.img}" alt="${i.title||w.name}" loading="lazy"></div>${i.title?`<p>${i.title} <span>${i.note||''}</span></p>`:''}</a>`).join('')}</div></div>`).join('');
 document.getElementById('yr').textContent = new Date().getFullYear();
 function show(){
